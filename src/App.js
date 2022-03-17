@@ -1,23 +1,28 @@
-import logo from './logo.svg';
 import './App.css';
+import React, {useState} from 'react';
+import {StartGame} from './components/StartGame';
+import {MainCard} from './components/MainCard'
 
 function App() {
+
+  const[ flip, setFlip] = useState('');
+  const[ shadow, setShadow] = useState('');
+
+  const flipCard = () => {
+    setFlip('180');
+    setShadow('-10');
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="Game">        
+        <div className='leftBox'>
+            <MainCard flip={flip} shadow={shadow}/>
+          </div>
+          <div className='rightBox'>
+            <StartGame flipper={flipCard}/>
+            </div>
+        </div>      
     </div>
   );
 }
