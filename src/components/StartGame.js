@@ -6,10 +6,13 @@ export const StartGame = (props) => {
 
     const getData = () => {
         props.flipper();
-        /*fetch(TMDB_API).then(res => res.json())
-            .then(data => {
-                var movies = data.results
-                console.log(movies[1]);
+        fetch ('http://files.tmdb.org/p/exports/movie_ids_04_28_2017.json.gz').then(res => res.json()).then(data => {
+            var tes = data;
+            console.log(data)
+        })
+        /*fetch(TMDB_API).then(res => res.json())            .then(data => {
+                var movies = data
+                console.log(movies);
             })*/
     }
 
