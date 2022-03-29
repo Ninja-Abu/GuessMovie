@@ -1,22 +1,26 @@
 import React, { Component, useState } from 'react'
+import TestMovie from './TestMovie.json'
 
 export const StartGame = (props) => {
+    const MovieName = null
+    const total_pages = 500
+    var rand_page =  1 + (Math.random() * (total_pages-1));
     const API_KEY = process.env.REACT_APP_MOVIE_API_KEY
-    const TMDB_API = "https://api.themoviedb.org/3/discover/movie?api_key="+API_KEY+"&language=en-US&sort_by=popularity.desc&include_adult=true&include_video=true&page=1&with_watch_monetization_types=flatrate"
-
+    const TMDB_API= "https://api.themoviedb.org/3/discover/movie?api_key="+API_KEY+"&language=en-US&sort_by=popularity.desc&page="+rand_page
     const getData = () => {
         props.flipper();
-        fetch ('http://files.tmdb.org/p/exports/movie_ids_04_28_2017.json.gz').then(res => res.json()).then(data => {
-            var tes = data;
-            console.log(data)
-        })
-        /*fetch(TMDB_API).then(res => res.json())            .then(data => {
+        const MovieName = TestMovie.original_title;
+        var rand_movie_number = 1 + Math.floor(Math.random() * 20); // Max movies per page is 20
+        /*fetch(TMDB_API).then(res => res.json()).then(data => {
                 var movies = data
-                console.log(movies);
+                console.log(movies.results[rand_movie_number]);
             })*/
     }
 
     return(
-        <button className='startButton' onClick={getData}>Start Game</button>
+        <div>
+            <button className='startButton' onClick={getData}>Start Game</button>
+        </div>
+        
     );
 }
