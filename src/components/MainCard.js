@@ -2,6 +2,7 @@ import React, { Component, useState} from 'react'
 
 export const MainCard = (props) => {
     
+    const movie = props.movie
     const styleTran = {
       transform: 'rotateY('+props.flip+'deg)',
       boxShadow: props.shadow+'px 10px 10px 2px rgba(0, 0, 0, 0.3)'
@@ -13,7 +14,7 @@ export const MainCard = (props) => {
                 Guess the Movie
               </div>
               <div className='backCard'>
-                Movie
+                {movie}
               </div>
         </div>
           

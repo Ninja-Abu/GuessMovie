@@ -7,17 +7,18 @@ function App() {
 
   const[ flip, setFlip] = useState('');
   const[ shadow, setShadow] = useState('');
-
-  const flipCard = () => {
+  const[ movie, setMovie] = useState('');
+  const flipCard = (MovieName) => {
     setFlip('180');
     setShadow('-10');
+    setMovie(MovieName)
   }
-
+  
   return (
     <div className="App">
       <div className="Game">        
         <div className='leftBox'>
-            <MainCard flip={flip} shadow={shadow}/>
+            <MainCard flip={flip} shadow={shadow} movie={movie}/>
           </div>
           <div className='rightBox'>
             <StartGame flipper={flipCard}/>
